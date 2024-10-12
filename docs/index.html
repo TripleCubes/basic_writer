@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="./main.css">
+
+	<title>basic writer</title>
+</head>
+<body>
+	<div class="content">
+		<label for="file_input"></label>
+		<input id="file_input" type="file" accept=".txt"/>
+		<div class="btns">
+			<button onclick="openFile()">open</button>
+			<button onclick="downloadFile()">download</button>
+			<button onclick="changeFont()">font</button>
+			<span class="save_status"></span>
+		</div>
+
+		<textarea class="textarea_monospace"></textarea>
+
+		<script src="./main.js"></script>
+	</div>
+</body>
+</html>
