@@ -25,11 +25,28 @@ body {
 	margin-top: 10px;
 }
 
+.word_count {
+	position: relative;
+	float: right;
+}
+
+.word_count::after {
+	content: " words";
+}
+
+#file_input {
+	margin-top: 10px;
+}
+
 textarea {
 	flex: 1;
-	margin-top: 10px;
 	font-family: sans-serif;
-	font-size: small;
+	font-size: medium;
+	border: 0;
+}
+
+textarea:focus {
+	outline: none;
 }
 
 .textarea_monospace {
