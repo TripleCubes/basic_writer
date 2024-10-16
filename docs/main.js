@@ -2,6 +2,7 @@ let textarea = document.querySelector('textarea');
 let fileInput = document.querySelector('#file_input');
 let saveStatus = document.querySelector('.save_status');
 let wordCount = document.querySelector('.word_count');
+let charCount = document.querySelector('.char_count');
 
 const TIMEOUT = 500;
 const LOCAL_STORAGE_TEXT = 'text';
@@ -19,6 +20,7 @@ let init = () => {
 	if (text != null) {
 		textarea.value = text;
 		wordCount.innerHTML = '' + getWordCount(textarea.value);
+		charCount.innerHTML = '' + textarea.value.length;
 	}
 }
 
@@ -39,6 +41,7 @@ let timeoutDone = () => {
 	localStorage.setItem(LOCAL_STORAGE_TEXT, textarea.value);
 	saveStatus.innerHTML = 'saved';
 	wordCount.innerHTML = '' + getWordCount(textarea.value);
+	charCount.innerHTML = '' + textarea.value.length;
 }
 
 let changeFont = () => {

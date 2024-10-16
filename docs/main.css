@@ -34,6 +34,16 @@ body {
 	content: " words";
 }
 
+.char_count {
+	position: relative;
+	float: right;
+	margin-right: 10px;
+}
+
+.char_count::after {
+	content: " chars";
+}
+
 #file_input {
 	margin-top: 10px;
 }
