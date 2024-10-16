@@ -61,4 +61,5 @@ textarea:focus {
 
 .textarea_monospace {
 	font-family: monospace;
+	font-size: large;
 }
