@@ -3,7 +3,7 @@ let fileInput = document.querySelector('#file_input');
 let saveStatus = document.querySelector('.save_status');
 let wordCount = document.querySelector('.word_count');
 
-const TIMEOUT = 1500;
+const TIMEOUT = 500;
 const LOCAL_STORAGE_TEXT = 'text';
 const LOCAL_STORAGE_FONT = 'font';
 const LOCAL_STORAGE_FONT_MONOSPACE = 'monospace';
