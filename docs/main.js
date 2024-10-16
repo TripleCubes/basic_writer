@@ -1,3 +1,5 @@
+let banner = document.querySelector('.banner');
+let bannerDismissBtn = document.querySelector('.banner_dismiss_btn');
 let textarea = document.querySelector('textarea');
 let fileInput = document.querySelector('#file_input');
 let saveStatus = document.querySelector('.save_status');
@@ -5,13 +7,28 @@ let wordCount = document.querySelector('.word_count');
 let charCount = document.querySelector('.char_count');
 
 const TIMEOUT = 500;
+
+const LOCAL_STORAGE_BANNER = 'banner';
+const LOCAL_STORAGE_TRUE = 'true';
+const LOCAL_STORAGE_FALSE = 'false';
+
 const LOCAL_STORAGE_TEXT = 'text';
+
 const LOCAL_STORAGE_FONT = 'font';
 const LOCAL_STORAGE_FONT_MONOSPACE = 'monospace';
 const LOCAL_STORAGE_FONT_SANS_SEFIR = 'sans_serif';
+
 let timeoutId = 0;
 
+
 let init = () => {
+	if (localStorage.getItem(LOCAL_STORAGE_BANNER) == null) {
+		localStorage.setItem(LOCAL_STORAGE_BANNER, LOCAL_STORAGE_TRUE);
+	}
+	else if (localStorage.getItem(LOCAL_STORAGE_BANNER)==LOCAL_STORAGE_FALSE) {
+		banner.style.display = 'none';
+	}
+
 	if (localStorage.getItem(LOCAL_STORAGE_FONT) == null) {
 		localStorage.setItem(LOCAL_STORAGE_FONT, LOCAL_STORAGE_FONT_SANS_SEFIR);
 	}
@@ -24,6 +41,10 @@ let init = () => {
 	}
 }
 
+bannerDismissBtn.addEventListener('click', () => {
+	localStorage.setItem(LOCAL_STORAGE_BANNER, LOCAL_STORAGE_FALSE);
+	banner.style.display = 'none';
+});
 
 textarea.addEventListener('keydown', (e) => {
 	saveStatus.innerHTML = 'unsaved';
