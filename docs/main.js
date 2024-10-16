@@ -23,16 +23,23 @@ let init = () => {
 }
 
 
-textarea.addEventListener('input', () => {
+textarea.addEventListener('keydown', (e) => {
 	saveStatus.innerHTML = 'unsaved';
 
+	if (e.key == ' ') {
+		timeoutDone();
+		return;
+	}
+
 	clearTimeout(timeoutId);
-	timeoutId = setTimeout(() => {
-		localStorage.setItem(LOCAL_STORAGE_TEXT, textarea.value);
-		saveStatus.innerHTML = 'saved';
-		wordCount.innerHTML = '' + getWordCount(textarea.value);
-	}, TIMEOUT);
+	timeoutId = setTimeout(timeoutDone, TIMEOUT);
 });
+
+let timeoutDone = () => {
+	localStorage.setItem(LOCAL_STORAGE_TEXT, textarea.value);
+	saveStatus.innerHTML = 'saved';
+	wordCount.innerHTML = '' + getWordCount(textarea.value);
+}
 
 let changeFont = () => {
 	if (localStorage.getItem(LOCAL_STORAGE_FONT)
